@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box
+}
+
+body {
+  background: #e75050;
+}
+
+button {
+  cursor: pointer;
+}
