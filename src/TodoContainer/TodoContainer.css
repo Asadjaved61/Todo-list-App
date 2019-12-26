@@ -4,6 +4,17 @@
     transform: translate(-50%, 0%);
 }
 
+.todo-counter {
+    background: white;
+    padding: 5px 8px;
+    position: relative;
+    left: 5px;
+    top: 8px;
+    border-radius: 50%;
+    color: #333;
+    font-weight: 500
+}
+
 .todo-list-container {
     width: 50%;
     min-height: 200px;

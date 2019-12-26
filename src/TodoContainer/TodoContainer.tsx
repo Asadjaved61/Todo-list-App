@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import TodoValue from '../Interfaces/TodoValue.interface';
+import TodoCounter from './TodoCounter';
 
 const TodoContainer: React.FC = () => {
     const [todos, setTodos] = useState<TodoValue[]>([
@@ -13,6 +14,18 @@ const TodoContainer: React.FC = () => {
         const newTodos: any = [...todos, { text, isCompleted: false }];
 
         setTodos(newTodos);
+    }
+
+    const todoCount = () => {
+        let count = 0;
+
+        todos.forEach(todo => {
+            if (!todo.isCompleted) {
+                count += 1
+            }
+        })
+
+        return count;
     }
 
     const moveDoneTaskAtBottom = () => {
@@ -46,7 +59,8 @@ const TodoContainer: React.FC = () => {
     }
     return (
         <div className="todo-list-container center-element">
-            <TodoForm addTodo={addTodo}/>
+            <TodoCounter todoCount= {todoCount()}/>
+            <TodoForm addTodo= {addTodo}/>
             <TodoList 
                 todos= {todos}
                 updateTodoStatus= {updateTodoStatus}

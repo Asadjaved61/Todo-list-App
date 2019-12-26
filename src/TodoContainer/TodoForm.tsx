@@ -9,6 +9,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
       if (!value) return;
 
       addTodo(value);
+      setValue('')
     };
   
     return (
