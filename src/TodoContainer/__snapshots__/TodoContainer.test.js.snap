@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo Container it should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="todo-list-container center-element"
+  >
+    <span
+      class="todo-counter"
+    >
+      0
+    </span>
+    <form
+      class="add-todo-form center-element"
+    >
+      <input
+        class="input add-todo-input"
+        name="addTodo"
+        placeholder="Add todo..."
+        required=""
+        type="text"
+        value=""
+      />
+      <button
+        class="btn btn-submit"
+        type="submit"
+      >
+        Add
+      </button>
+    </form>
+    <ul
+      class="todo-list"
+    />
+  </div>
+</DocumentFragment>
+`;

@@ -6,6 +6,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
   
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+      // on submit button click add new todo
       if (!value) return;
 
       addTodo(value);
@@ -16,9 +17,10 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
       <form className="add-todo-form center-element" onSubmit={handleSubmit}>
         <input
           type="text"
-          className="input"
+          className="input add-todo-input"
           placeholder="Add todo..."
           value={value}
+          name="addTodo"
           onChange={e => setValue(e.target.value)}
           required
         />

@@ -1,25 +1,62 @@
-import React, {useState} from 'react'
+import React, { Component } from 'react'
 
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import TodoValue from '../Interfaces/TodoValue.interface';
 import TodoCounter from './TodoCounter';
+import TodoCont from '../Interfaces/TodoContainer.interface';
 
-const TodoContainer: React.FC = () => {
-    const [todos, setTodos] = useState<TodoValue[]>([
-        { text: 'Go to gym', isCompleted: false }
-    ]);
+class TodoContainer extends Component<{}, { todos: TodoValue[] }> implements TodoCont {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            todos: []
+        }
+    }
     
-    const addTodo = (text: String) => {
-        const newTodos: any = [...todos, { text, isCompleted: false }];
+    addTodo = (text: String) => {
+        // get existing todos copy and add new todo at the end of array
+        const newTodos: any[] = [...this.state.todos, { text, isCompleted: false }];
 
-        setTodos(newTodos);
+        this.setState({ todos: newTodos })
     }
 
-    const todoCount = () => {
+    moveDoneTaskAtBottom = () => {
+        const newTodos: TodoValue[] = [...this.state.todos];
+        
+        // move done todos at the bottom by pushing them
+        newTodos.forEach((todo: TodoValue, index: number) => {
+            if (todo.isCompleted) {
+                newTodos.push(newTodos.splice(index, 1)[0])
+            }
+        })
+
+        this.setState({ todos: newTodos })
+    }
+
+    updateTodoStatus = (index: number) => {
+        const newTodos: TodoValue[] = [...this.state.todos];
+
+        // toggle todo and mark it as done or undone
+        newTodos[index].isCompleted = !newTodos[index].isCompleted;
+        this.setState({ todos: newTodos });
+
+        this.moveDoneTaskAtBottom()
+    }
+
+    removeTodo = (index: any) => {
+        // remove selected todo
+        const newTodos: TodoValue[] = [...this.state.todos];
+        newTodos.splice(index, 1);
+
+        this.setState({ todos: newTodos });
+    }
+
+    todoCount = () => {
+        // update number of todos
         let count = 0;
 
-        todos.forEach(todo => {
+        this.state.todos.forEach((todo: TodoValue) => {
             if (!todo.isCompleted) {
                 count += 1
             }
@@ -28,46 +65,19 @@ const TodoContainer: React.FC = () => {
         return count;
     }
 
-    const moveDoneTaskAtBottom = () => {
-        const newTodos: TodoValue[] = [...todos];
-
-        newTodos.forEach((todo: TodoValue, index: number) => {
-            if (todo.isCompleted) {
-                newTodos.push(newTodos.splice(index, 1)[0])
-            } else {
-                newTodos.unshift(newTodos.splice(index, 1)[0])
-            }
-        })
-
-        setTodos(newTodos)
+    render() {
+        return (
+            <div className="todo-list-container center-element">
+                <TodoCounter todoCount= {this.todoCount()}/>
+                <TodoForm addTodo= {this.addTodo}/>
+                <TodoList 
+                    todos= {this.state.todos}
+                    updateTodoStatus= {this.updateTodoStatus}
+                    removeTodo= {this.removeTodo}
+                />
+            </div>
+        )
     }
-
-    const updateTodoStatus = (index: any) => {
-        const newTodos: TodoValue[] = [...todos];
-
-        newTodos[index].isCompleted = !newTodos[index].isCompleted;
-        setTodos(newTodos);
-
-        moveDoneTaskAtBottom()
-    }
-
-    const removeTodo = (index: any) => {
-        const newTodos: TodoValue[] = [...todos];
-        newTodos.splice(index, 1);
-
-        setTodos(newTodos);
-    }
-    return (
-        <div className="todo-list-container center-element">
-            <TodoCounter todoCount= {todoCount()}/>
-            <TodoForm addTodo= {addTodo}/>
-            <TodoList 
-                todos= {todos}
-                updateTodoStatus= {updateTodoStatus}
-                removeTodo= {removeTodo}
-            />
-        </div>
-    )
 }
 
 export default TodoContainer;
