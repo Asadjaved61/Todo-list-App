@@ -10,8 +10,12 @@ class TodoContainer extends Component<{}, { todos: TodoValue[] }> implements Tod
     constructor(props: any) {
         super(props);
         this.state = {
-            todos: []
+            todos: JSON.parse(localStorage.getItem("todoList") as string) || []
         }
+    }
+
+    componentDidUpdate = () => {
+        localStorage.setItem('todoList', JSON.stringify(this.state.todos))
     }
     
     addTodo = (text: String) => {

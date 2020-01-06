@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1577976090997" clover="3.2.0">
-  <project timestamp="1577976090997" name="All files">
-    <metrics statements="36" coveredstatements="33" conditionals="6" coveredconditionals="5" methods="12" coveredmethods="11" elements="54" coveredelements="49" complexity="0" loc="36" ncloc="36" packages="1" files="2" classes="2"/>
+<coverage generated="1578080347729" clover="3.2.0">
+  <project timestamp="1578080347729" name="All files">
+    <metrics statements="38" coveredstatements="35" conditionals="8" coveredconditionals="7" methods="13" coveredmethods="12" elements="59" coveredelements="54" complexity="0" loc="38" ncloc="38" packages="1" files="2" classes="2"/>
     <file name="TodoContainer.tsx" path="/Users/javeda/Documents/GitHub/Todo-list-App/src/TodoContainer/TodoContainer.tsx">
-      <metrics statements="27" coveredstatements="27" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9"/>
+      <metrics statements="29" coveredstatements="29" conditionals="6" coveredconditionals="6" methods="10" coveredmethods="10"/>
       <line num="11" count="7" type="stmt"/>
       <line num="12" count="7" type="stmt"/>
       <line num="17" count="7" type="stmt"/>
-      <line num="19" count="7" type="stmt"/>
+      <line num="18" count="13" type="stmt"/>
       <line num="21" count="7" type="stmt"/>
-      <line num="24" count="7" type="stmt"/>
-      <line num="25" count="3" type="stmt"/>
-      <line num="28" count="3" type="stmt"/>
-      <line num="29" count="5" type="cond" truecount="2" falsecount="0"/>
-      <line num="30" count="4" type="stmt"/>
-      <line num="34" count="3" type="stmt"/>
-      <line num="37" count="7" type="stmt"/>
-      <line num="38" count="2" type="stmt"/>
-      <line num="41" count="2" type="stmt"/>
+      <line num="23" count="7" type="stmt"/>
+      <line num="25" count="7" type="stmt"/>
+      <line num="28" count="7" type="stmt"/>
+      <line num="29" count="3" type="stmt"/>
+      <line num="32" count="3" type="stmt"/>
+      <line num="33" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="34" count="7" type="stmt"/>
+      <line num="38" count="3" type="stmt"/>
+      <line num="41" count="7" type="stmt"/>
       <line num="42" count="2" type="stmt"/>
-      <line num="44" count="2" type="stmt"/>
-      <line num="47" count="7" type="stmt"/>
-      <line num="49" count="1" type="stmt"/>
-      <line num="50" count="1" type="stmt"/>
-      <line num="52" count="1" type="stmt"/>
-      <line num="55" count="7" type="stmt"/>
-      <line num="57" count="21" type="stmt"/>
-      <line num="59" count="21" type="stmt"/>
-      <line num="60" count="19" type="cond" truecount="2" falsecount="0"/>
-      <line num="61" count="14" type="stmt"/>
-      <line num="65" count="21" type="stmt"/>
-      <line num="69" count="20" type="stmt"/>
+      <line num="45" count="2" type="stmt"/>
+      <line num="46" count="2" type="stmt"/>
+      <line num="48" count="2" type="stmt"/>
+      <line num="51" count="7" type="stmt"/>
+      <line num="53" count="1" type="stmt"/>
+      <line num="54" count="1" type="stmt"/>
+      <line num="56" count="1" type="stmt"/>
+      <line num="59" count="7" type="stmt"/>
+      <line num="61" count="21" type="stmt"/>
+      <line num="63" count="21" type="stmt"/>
+      <line num="64" count="65" type="cond" truecount="2" falsecount="0"/>
+      <line num="65" count="42" type="stmt"/>
+      <line num="69" count="21" type="stmt"/>
+      <line num="73" count="20" type="stmt"/>
     </file>
     <file name="TodoForm.tsx" path="/Users/javeda/Documents/GitHub/Todo-list-App/src/TodoContainer/TodoForm.tsx">
       <metrics statements="9" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
